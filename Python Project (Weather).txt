@@ -1,0 +1,13 @@
+import requests
+state_or_city_name=input("Enter the City Name  :  -  ")
+
+api_key='4010c57109eaf74a822a441e0fc1b989'
+
+weather_data=requests.get("https://api.openweathermap.org/data/2.5/weather?q="+state_or_city_name+"&appid=4010c57109eaf74a822a441e0fc1b989")
+
+
+data= weather_data.json()
+ 
+x=str(int(data["main"]["temp"]-273.15))
+
+print("Currently Temperature in "+ state_or_city_name+ "  : "+x+"°C 🌡️")
